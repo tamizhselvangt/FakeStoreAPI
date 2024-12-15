@@ -8,13 +8,19 @@
 import Foundation
 
 
+
 struct UserService{
     
     func fetchAllUsers() async throws -> [User]{
+        let url = URL(string: "https://fakestoreapi.com/users")
         
-        return []
+        let (data,_) = try await URLSession.shared.data(from: url!)
+        
+        let users = try JSONDecoder().decode([User].self, from: data)
+        
+        return users
     }
-    
+
     func fetchUser(_ id:Int) async throws -> User?{
         let url = URL(string: "https://fakestoreapi.com/users/\(id)")
         

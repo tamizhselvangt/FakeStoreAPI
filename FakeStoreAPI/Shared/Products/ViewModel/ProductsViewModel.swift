@@ -21,7 +21,7 @@ class ProductsViewModel: ObservableObject{
     @MainActor
     func fetchProducts() async{
         do{
-            products = try await service.fetchProducts()
+            self.products = try await service.fetchProductsByTaskGroup()/*fetchProducts()*/
         }catch{
             print(error)
         }

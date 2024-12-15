@@ -8,10 +8,11 @@
 import Foundation
 
 
+
 struct User: Codable, Hashable, Identifiable {
     
     var id: Int
-    let name: String
+    let username: String
     let email: String
  
 }
